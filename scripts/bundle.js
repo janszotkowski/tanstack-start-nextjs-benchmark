@@ -21,7 +21,12 @@ const ZERO = { raw: 0, gzip: 0, brotli: 0 };
 
 const assetUrls = (html, base) => {
     const urls = { js: new Set(), css: new Set() };
-    for (const match of html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)) urls.js.add(new URL(match[1], base).href);
+    for (const match of html.matchAll(/<script\b[^>]*>/g)) {
+        // `noModule` scripts (Next's polyfills) are skipped by every browser that runs modules, so they are not downloaded.
+        if (/\bnomodule\b/i.test(match[0])) continue;
+        const src = /\bsrc="([^"]+)"/.exec(match[0])?.[1];
+        if (src !== undefined) urls.js.add(new URL(src, base).href);
+    }
     for (const match of html.matchAll(/<link\b[^>]*>/g)) {
         const tag = match[0];
         const href = /\bhref="([^"]+)"/.exec(tag)?.[1];

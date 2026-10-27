@@ -25,6 +25,15 @@ export default defineConfig({
         tanstackStart(),
         nitro({
             prerender: { routes: PRERENDERED, crawlLinks: false, failOnError: true },
+            // The same Cache-Control as Next sends by default, so neither app gets a caching advantage:
+            // prerendered pages `s-maxage=31536000`, server-rendered pages `no-store`, the API none.
+            // (Hashed files under /assets already get `immutable` from Nitro, like Next's /_next/static.)
+            routeRules: {
+                '/products': { headers: { 'cache-control': 'private, no-cache, no-store, max-age=0, must-revalidate' } },
+                '/products/**': { headers: { 'cache-control': 'private, no-cache, no-store, max-age=0, must-revalidate' } },
+                ...Object.fromEntries(PRERENDERED.map((path) => [path, { headers: { 'cache-control': 's-maxage=31536000' } }])),
+                '/assets/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+            },
             // `'use client'` only means something to a server-components bundler. Start renders without that boundary,
             // so the directive (in TanStack Router and in packages/ui) is inert and its "may not be preserved" warning is noise.
             rolldownConfig: {
