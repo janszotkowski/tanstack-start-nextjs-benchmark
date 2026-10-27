@@ -1,0 +1,13 @@
+{
+    "name": "@bench/data",
+    "version": "0.0.0",
+    "private": true,
+    "description": "Deterministic in-memory data shared by both apps: no database, no network",
+    "type": "module",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "scripts": {
+        "typecheck": "tsc -p tsconfig.json"
+    }
+}

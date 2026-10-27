@@ -1,0 +1,14 @@
+/* Shared theme. Each app imports Tailwind itself and then this file, and points Tailwind at this package's sources. */
+@theme {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@layer base {
+    html {
+        color-scheme: light dark;
+    }
+    body {
+        @apply bg-white text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100;
+    }
+}

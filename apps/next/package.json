@@ -1,0 +1,28 @@
+{
+    "name": "@bench/next",
+    "version": "0.0.0",
+    "private": true,
+    "description": "The benchmark app on Next.js (App Router)",
+    "type": "module",
+    "scripts": {
+        "dev": "next dev --port 3001",
+        "build": "next build && cp -R .next/static .next/standalone/apps/next/.next/",
+        "start": "node .next/standalone/apps/next/server.js",
+        "typecheck": "next typegen && tsc -p tsconfig.json"
+    },
+    "dependencies": {
+        "@bench/data": "workspace:*",
+        "@bench/ui": "workspace:*",
+        "next": "16.4.2",
+        "react": "19.3.1",
+        "react-dom": "19.3.1"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "4.3.3",
+        "@types/node": "26.6.5",
+        "@types/react": "19.3.0",
+        "@types/react-dom": "19.3.0",
+        "tailwindcss": "4.3.3",
+        "typescript": "7.0.2"
+    }
+}

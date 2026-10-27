@@ -1,0 +1,11 @@
+packages:
+    - apps/*
+    - packages/*
+
+# Supply-chain protection: only versions older than 7 days are installed (in minutes).
+minimumReleaseAge: 10080
+
+# Exact versions in package.json, no ^ or ~.
+savePrefix: ''
+
+engineStrict: true

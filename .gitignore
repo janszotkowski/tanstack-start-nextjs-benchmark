@@ -1,0 +1,13 @@
+.idea
+node_modules
+dist
+.turbo
+.env
+.env.*
+*.log
+.DS_Store
+.output
+.next
+.tanstack
+next-env.d.ts
+results/raw
