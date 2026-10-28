@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+        </pattern>
+        <linearGradient id="start" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffd166"/>
+            <stop offset="0.5" stop-color="#ff7a59"/>
+            <stop offset="1" stop-color="#ff4fa3"/>
+        </linearGradient>
+        <linearGradient id="next" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#9a9a9a"/>
+        </linearGradient>
+        <radialGradient id="glowLeft" cx="0.25" cy="0.45" r="0.5">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="glowRight" cx="0.75" cy="0.45" r="0.5">
+            <stop offset="0" stop-color="#ff7a59" stop-opacity="0.22"/>
+            <stop offset="1" stop-color="#ff7a59" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+
+    <rect width="1200" height="630" fill="#0a0a0a"/>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+    <rect width="1200" height="630" fill="url(#glowLeft)"/>
+    <rect width="1200" height="630" fill="url(#glowRight)"/>
+
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="3" fill="#8a8a8a">
+        <text x="60" y="72">BENCHMARK · 2026</text>
+        <text x="1140" y="72" text-anchor="end">SELF-HOSTED · NODE 24 · REACT 19</text>
+    </g>
+    <line x1="60" y1="96" x2="1140" y2="96" stroke="#ffffff" stroke-opacity="0.14"/>
+
+    <line x1="600" y1="140" x2="600" y2="250" stroke="#ffffff" stroke-opacity="0.18"/>
+    <line x1="600" y1="330" x2="600" y2="440" stroke="#ffffff" stroke-opacity="0.18"/>
+    <text x="600" y="303" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" fill="#ffffff" fill-opacity="0.55" letter-spacing="4">VS</text>
+
+    <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-weight="800">
+        <text x="330" y="318" text-anchor="middle" font-size="104" letter-spacing="-4" fill="url(#next)">Next.js</text>
+        <text x="870" y="282" text-anchor="middle" font-size="96" letter-spacing="-4" fill="url(#start)">TanStack</text>
+        <text x="870" y="370" text-anchor="middle" font-size="96" letter-spacing="-4" fill="url(#start)">Start</text>
+    </g>
+
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#9a9a9a" text-anchor="middle">
+        <text x="330" y="372">16.4.2 · App Router · Turbopack</text>
+        <text x="870" y="420">1.169.3 · Vite · Nitro</text>
+    </g>
+
+    <text x="600" y="500" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="26" fill="#d4d4d4">Same app. Same UI. Same data. Only the framework differs.</text>
+
+    <line x1="60" y1="540" x2="1140" y2="540" stroke="#ffffff" stroke-opacity="0.14"/>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="3" fill="#8a8a8a" text-anchor="middle">
+        <text x="150" y="580">BUILD</text>
+        <text x="330" y="580">BUNDLE</text>
+        <text x="510" y="580">SSR LOAD</text>
+        <text x="690" y="580">HYDRATION</text>
+        <text x="870" y="580">INP</text>
+        <text x="1050" y="580">DOCKER</text>
+    </g>
+    <g stroke="#ffffff" stroke-opacity="0.14">
+        <line x1="240" y1="556" x2="240" y2="598"/>
+        <line x1="420" y1="556" x2="420" y2="598"/>
+        <line x1="600" y1="556" x2="600" y2="598"/>
+        <line x1="780" y1="556" x2="780" y2="598"/>
+        <line x1="960" y1="556" x2="960" y2="598"/>
+    </g>
+</svg>
