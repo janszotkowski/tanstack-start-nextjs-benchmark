@@ -57,7 +57,7 @@ pnpm bench:all
 | `pnpm bench:bundle`                        | first-load JS/CSS/HTML per route (raw, gzip, brotli)                                   | 1 run (deterministic) |
 | `pnpm bench:dev --runs 5 --hmr 5`          | dev cold start, first compile, HMR, memory                                             | 5 × 5                 |
 | `pnpm bench:docker --runs 30`              | image size, container start, first SSR request                                         | 30 runs               |
-| `pnpm bench:load --duration 60 --rounds 3` | req/s, p50/p90/p99, memory, CPU at 10/50/200 connections                               | 60 s × 3 rounds       |
+| `pnpm bench:load --duration 60 --rounds 3` | req/s, p50/p90/p99, memory, CPU at 10/50/100 connections                               | 60 s × 3 rounds       |
 | `pnpm bench:load --target docker`          | the same, inside the containers with `--cpus 2 --memory 1g`                            |                       |
 | `pnpm bench:lighthouse --runs 30`          | TTFB, FCP, LCP, TBT, CLS, JS execution, bytes, interaction latency; desktop and mobile | 30 runs               |
 | `pnpm bench:report`                        | `results/*.json` → `RESULTS.md`                                                        |                       |

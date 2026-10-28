@@ -2,18 +2,25 @@
  * Server throughput and latency under load (autocannon), per route and concurrency level, with a warm-up,
  * in A/B order over several rounds. Memory (RSS) and CPU of the server process are sampled while it runs.
  *
+ * At most 100 connections: macOS accepts only `kern.ipc.somaxconn` (128) pending connections and drops the rest, so at 200
+ * both apps showed thousands of connection errors that measured the OS, not the framework.
+ *
  *   pnpm bench:load --duration 60 --rounds 3
+ *   pnpm bench:load --connections 100 --merge   # measure one level and keep the others from results/load-local.json
  *   pnpm bench:load --target docker      # against the containers (same --cpus/--memory limits), see scripts/docker.js
  */
 import { execFileSync } from 'node:child_process';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import autocannon from 'autocannon';
-import { abOrder, APPS, ROUTES } from './lib/apps.js';
+import { abOrder, APPS, ROOT, ROUTES } from './lib/apps.js';
 import { startContainer } from './lib/docker.js';
 import { saveResult } from './lib/results.js';
 import { rssMb, sleep, startServer } from './lib/server.js';
 import { args, summarize } from './lib/stats.js';
 
-const options = args({ duration: 60, warmup: 10, rounds: 3, connections: '10,50,200', target: 'local' });
+const LEVELS = '10,50,100';
+const options = args({ duration: 60, warmup: 10, rounds: 3, connections: LEVELS, target: 'local', merge: false });
 const levels = options.connections.split(',').map(Number);
 
 const cpuPercent = (pid) => Number(execFileSync('ps', ['-o', '%cpu=', '-p', String(pid)], { encoding: 'utf8' }).trim());
@@ -84,15 +91,22 @@ for (let round = 0; round < options.rounds; round++) {
     }
 }
 
+// With --merge, the levels not measured now are kept from the previous file (only the standard levels, so an old 200 is dropped).
+const previous = options.merge && existsSync(join(ROOT, 'results', `load-${options.target}.json`)) ? JSON.parse(readFileSync(join(ROOT, 'results', `load-${options.target}.json`), 'utf8')) : null;
+const kept = (key) =>
+    (previous?.apps[key]?.routes ?? []).filter((entry) => !levels.includes(entry.connections) && LEVELS.split(',').map(Number).includes(entry.connections));
+const order = (entries) =>
+    entries.sort((a, b) => ROUTES.findIndex((route) => route.path === a.route) - ROUTES.findIndex((route) => route.path === b.route) || a.connections - b.connections);
+
 saveResult(`load-${options.target}`, {
-    options,
+    options: previous === null ? options : { ...options, connections: LEVELS, merged: `${options.connections} measured on ${new Date().toISOString().slice(0, 10)}, the rest kept` },
     note: 'autocannon, one route at a time, after a warm-up. req/s is the per-second average of each run; latencies in ms. Each number summarizes the rounds.',
     apps: Object.fromEntries(
         Object.entries(samples).map(([key, value]) => [
             key,
             {
                 idleMb: summarize(value.idleMb),
-                routes: Object.values(value.routes).map((entry) => ({
+                routes: order([...kept(key), ...Object.values(value.routes).map((entry) => ({
                     route: entry.route,
                     mode: entry.mode,
                     connections: entry.connections,
@@ -104,7 +118,7 @@ saveResult(`load-${options.target}`, {
                     non2xx: entry.non2xx,
                     peakMemoryMb: summarize(entry.peakMemoryMb),
                     cpuPercent: summarize(entry.cpuPercent),
-                })),
+                }))]),
             },
         ]),
     ),

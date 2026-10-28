@@ -1,10 +1,13 @@
 /**
- * Browser metrics with Lighthouse user flows, in A/B order: for every route, a cold navigation
- * (TTFB, FCP, LCP, TBT, CLS, JS execution, bytes and requests), then a timespan with one real interaction
- * (INP, and how long the client-side transition took).
+ * Browser metrics, in A/B order. For every route and sample:
+ *   1. a cold Lighthouse navigation: TTFB, FCP, LCP, TBT, CLS, JS execution, bytes and requests;
+ *   2. a separate cold load in a fresh page, without Lighthouse, then one real interaction: its Event Timing latency
+ *      (what INP is computed from) and how long until the DOM shows the result.
+ * The interaction is measured outside Lighthouse on purpose: a Lighthouse timespan records a full trace (JS sampling,
+ * screenshots), which inflated a 5,000-row sort from ~0.2 s to ~1.3 s and hid the real latency.
  *
  * Both apps sit behind the same compressing proxy (scripts/lib/proxy.js), as they would behind nginx in production.
- * Throttling is applied for real (devtools), not simulated, so the timespan and the navigation see the same slow CPU:
+ * Throttling is applied for real (devtools / CDP), not simulated, with the same values in both steps:
  *   desktop: no throttling, 1350×940
  *   mobile:  4× CPU slowdown, 4G-like network (150 ms RTT, 1.6 Mbps down), 412×823
  *
@@ -16,10 +19,16 @@ import puppeteer from 'puppeteer-core';
 import { abOrder, APPS } from './lib/apps.js';
 import { startProxy } from './lib/proxy.js';
 import { saveResult } from './lib/results.js';
-import { startServer } from './lib/server.js';
+import { sleep, startServer } from './lib/server.js';
 import { args, summarize } from './lib/stats.js';
 
 const options = args({ runs: 30, profiles: 'desktop,mobile', routes: '' });
+
+// The throttling and screen of each profile, applied over CDP for the interaction step (Lighthouse applies the same in its own).
+const EMULATION = {
+    desktop: { latency: 0, downloadKbps: 0, uploadKbps: 0, cpu: 1, viewport: { width: 1350, height: 940, deviceScaleFactor: 1, isMobile: false, hasTouch: false } },
+    mobile: { latency: 150 * 3.75, downloadKbps: 1638.4 * 0.9, uploadKbps: 750 * 0.9, cpu: 4, viewport: { width: 412, height: 823, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true } },
+};
 
 const PROFILES = {
     desktop: {
@@ -31,7 +40,12 @@ const PROFILES = {
             settings: {
                 formFactor: 'mobile',
                 throttlingMethod: 'devtools',
-                throttling: { requestLatencyMs: 150 * 3.75, downloadThroughputKbps: 1638.4 * 0.9, uploadThroughputKbps: 750 * 0.9, cpuSlowdownMultiplier: 4 },
+                throttling: {
+                    requestLatencyMs: EMULATION.mobile.latency,
+                    downloadThroughputKbps: EMULATION.mobile.downloadKbps,
+                    uploadThroughputKbps: EMULATION.mobile.uploadKbps,
+                    cpuSlowdownMultiplier: EMULATION.mobile.cpu,
+                },
                 screenEmulation: { mobile: true, width: 412, height: 823, deviceScaleFactor: 1.75, disabled: false },
             },
         },
@@ -40,9 +54,19 @@ const PROFILES = {
 
 const mainText = (page) => page.evaluate(() => document.querySelector('main')?.textContent ?? '');
 
-/** A client-side navigation through a link; returns ms from the click until the page's content has changed. */
+/** How long a person looks at a loaded page before acting, and rests the pointer on a link before clicking it. */
+const DWELL_MS = 3000;
+const HOVER_MS = 200;
+
+/**
+ * A client-side navigation through a link, the way a person does it: the pointer rests on the link for a moment,
+ * then clicks. Returns ms from the click until the page's content has changed. (Clicking the instant the pointer
+ * arrives would deny Start's hover preload the time it gets in real use; Next's viewport prefetch had the dwell.)
+ */
 const navigateBy = (selector) => async (page) => {
     const before = await mainText(page);
+    await page.hover(selector);
+    await sleep(HOVER_MS);
     const started = Date.now();
     await page.click(selector);
     await page.waitForFunction((text) => document.querySelector('main')?.textContent !== text, { timeout: 30_000 }, before);
@@ -98,7 +122,7 @@ const SCENARIOS = [
 
 const audit = (lhr, id) => lhr.audits[id]?.numericValue;
 
-const metricsOf = (navigation, timespan) => {
+const metricsOf = (navigation) => {
     const requests = navigation.audits['network-requests']?.details?.items ?? [];
     const scripts = requests.filter((request) => request.resourceType === 'Script');
     return {
@@ -114,9 +138,37 @@ const metricsOf = (navigation, timespan) => {
         jsRequests: scripts.length,
         jsTransferKb: scripts.reduce((sum, request) => sum + (request.transferSize ?? 0), 0) / 1024,
         totalTransferKb: (audit(navigation, 'total-byte-weight') ?? 0) / 1024,
-        inp: audit(timespan, 'interaction-to-next-paint'),
         performanceScore: (navigation.categories.performance?.score ?? 0) * 100,
     };
+};
+
+/** A fresh, cold, throttled page without Lighthouse: load the route, let it settle, run the interaction. */
+const measureInteraction = async (url, profile, scenario) => {
+    const emulation = EMULATION[profile];
+    const page = await browser.newPage();
+    try {
+        const cdp = await page.createCDPSession();
+        await cdp.send('Network.enable');
+        await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
+        await cdp.send('Network.emulateNetworkConditions', {
+            offline: false,
+            latency: emulation.latency,
+            downloadThroughput: emulation.downloadKbps === 0 ? -1 : (emulation.downloadKbps * 1024) / 8,
+            uploadThroughput: emulation.uploadKbps === 0 ? -1 : (emulation.uploadKbps * 1024) / 8,
+        });
+        await cdp.send('Emulation.setCPUThrottlingRate', { rate: emulation.cpu });
+        await page.setViewport(emulation.viewport);
+        // Loaded, idle, and then a moment of reading before acting, so work scheduled for idle time (Next's prefetch) has run.
+        await page.goto(url, { waitUntil: 'networkidle0', timeout: 120_000 });
+        await sleep(DWELL_MS);
+        await observeInteractions(page);
+        const interactionMs = await scenario.run(page);
+        // Let the last frame paint, so its Event Timing entry is complete.
+        await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => setTimeout(resolve, 100))));
+        return { eventLatency: await slowestInteraction(page), interactionMs };
+    } finally {
+        await page.close();
+    }
 };
 
 const scenarios = options.routes === '' ? SCENARIOS : SCENARIOS.filter((scenario) => options.routes.split(',').includes(scenario.path));
@@ -139,24 +191,19 @@ try {
                     try {
                         const flow = await startFlow(page, { config: PROFILES[profile].config });
                         await flow.navigate(proxies[key].url + scenario.path);
-                        await flow.startTimespan();
-                        await observeInteractions(page);
-                        const interactionMs = await scenario.run(page);
-                        // Let the last frame paint, so its Event Timing entry is complete.
-                        await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => setTimeout(resolve, 100))));
-                        const eventLatency = await slowestInteraction(page);
-                        await flow.endTimespan();
                         const result = await flow.createFlowResult();
-                        const metrics = { ...metricsOf(result.steps[0].lhr, result.steps[1].lhr), eventLatency, interactionMs };
+                        await page.close();
+                        const interaction = await measureInteraction(proxies[key].url + scenario.path, profile, scenario);
+                        const metrics = { ...metricsOf(result.steps[0].lhr), ...interaction };
                         const id = `${profile} ${scenario.path}`;
                         samples[key] ??= {};
                         samples[key][id] ??= { profile, route: scenario.path, interaction: scenario.interaction, values: {} };
                         for (const [name, value] of Object.entries(metrics)) (samples[key][id].values[name] ??= []).push(value);
                         console.log(
-                            `round ${round + 1}/${options.runs} ${profile.padEnd(7)} ${APPS[key].name.padEnd(15)} ${scenario.path.padEnd(42)} LCP ${Math.round(metrics.lcp)} ms  TBT ${Math.round(metrics.tbt)} ms  event ${Math.round(metrics.eventLatency)} ms  interaction ${interactionMs} ms`,
+                            `round ${round + 1}/${options.runs} ${profile.padEnd(7)} ${APPS[key].name.padEnd(15)} ${scenario.path.padEnd(42)} LCP ${Math.round(metrics.lcp)} ms  TBT ${Math.round(metrics.tbt)} ms  event ${Math.round(metrics.eventLatency)} ms  interaction ${metrics.interactionMs} ms`,
                         );
                     } finally {
-                        await page.close();
+                        if (!page.isClosed()) await page.close();
                     }
                 }
             }
@@ -171,7 +218,7 @@ try {
 
 saveResult('lighthouse', {
     options,
-    note: 'Lighthouse user flow per sample: cold navigation, then a timespan with the interaction. Times in ms, sizes in kB. eventLatency is the slowest Event Timing duration during the interaction (the INP input; 0 = under 16 ms), inp is the Lighthouse audit when applicable; interactionMs is wall time from the action until the DOM shows its result.',
+    note: 'Per sample: a cold Lighthouse navigation for the load metrics, then a separate cold load without Lighthouse for the interaction (same throttling). Times in ms, sizes in kB. eventLatency is the slowest Event Timing duration during the interaction (the INP input; 0 = under 16 ms); interactionMs is wall time from the action until the DOM shows its result.',
     apps: Object.fromEntries(
         Object.entries(samples).map(([key, entries]) => [
             key,
