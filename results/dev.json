@@ -1,0 +1,108 @@
+{
+    "environment": {
+        "date": "2026-10-29T13:43:12.754Z",
+        "machine": {
+            "cpu": "Apple M5 Pro",
+            "cores": 15,
+            "memoryGb": 48,
+            "platform": "darwin 27.0.0"
+        },
+        "node": "v24.22.1",
+        "pnpm": "12.14.0",
+        "versions": {
+            "next": "16.4.2",
+            "@tanstack/react-start": "1.169.3",
+            "@tanstack/react-router": "1.170.45",
+            "vite": "8.3.4",
+            "react": "19.3.1",
+            "tailwindcss": "4.3.3"
+        }
+    },
+    "runs": 5,
+    "hmrEditsPerRun": 5,
+    "note": "Caches deleted before each start. firstPageMs: spawn until / is served (includes compiling it). dashboardCompileMs: first request to /dashboard. hmrMs: file write until the browser shows the new text. memoryMb: RSS of the dev server process group after the run.",
+    "apps": {
+        "next": {
+            "readyMs": {
+                "n": 0
+            },
+            "firstPageMs": {
+                "n": 5,
+                "median": 977.6,
+                "p95": 1026.11,
+                "min": 973.67,
+                "max": 1029.39,
+                "mean": 994.01,
+                "stdev": 25.51
+            },
+            "dashboardCompileMs": {
+                "n": 5,
+                "median": 397.89,
+                "p95": 406.54,
+                "min": 386.16,
+                "max": 407.81,
+                "mean": 396.93,
+                "stdev": 8.47
+            },
+            "hmrMs": {
+                "n": 25,
+                "median": 76.56,
+                "p95": 110.34,
+                "min": 71.51,
+                "max": 112.51,
+                "mean": 82.45,
+                "stdev": 11.75
+            },
+            "memoryMb": {
+                "n": 5,
+                "median": 893.3,
+                "p95": 898.6,
+                "min": 876.4,
+                "max": 899,
+                "mean": 890.7,
+                "stdev": 9.06
+            }
+        },
+        "start": {
+            "readyMs": {
+                "n": 0
+            },
+            "firstPageMs": {
+                "n": 5,
+                "median": 664.39,
+                "p95": 679.67,
+                "min": 654.34,
+                "max": 683.48,
+                "mean": 665.88,
+                "stdev": 10.69
+            },
+            "dashboardCompileMs": {
+                "n": 5,
+                "median": 250.6,
+                "p95": 261.44,
+                "min": 240.42,
+                "max": 262.46,
+                "mean": 251.59,
+                "stdev": 8.62
+            },
+            "hmrMs": {
+                "n": 25,
+                "median": 102.68,
+                "p95": 168.07,
+                "min": 93.07,
+                "max": 170.15,
+                "mean": 116.46,
+                "stdev": 26.82
+            },
+            "memoryMb": {
+                "n": 5,
+                "median": 588.7,
+                "p95": 591.84,
+                "min": 577.1,
+                "max": 592.6,
+                "mean": 586.96,
+                "stdev": 5.83
+            }
+        }
+    }
+}

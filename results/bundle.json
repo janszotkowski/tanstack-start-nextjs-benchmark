@@ -1,0 +1,228 @@
+{
+    "environment": {
+        "date": "2026-10-29T13:42:26.111Z",
+        "machine": {
+            "cpu": "Apple M5 Pro",
+            "cores": 15,
+            "memoryGb": 48,
+            "platform": "darwin 27.0.0"
+        },
+        "node": "v24.22.1",
+        "pnpm": "12.14.0",
+        "versions": {
+            "next": "16.4.2",
+            "@tanstack/react-start": "1.169.3",
+            "@tanstack/react-router": "1.170.45",
+            "vite": "8.3.4",
+            "react": "19.3.1",
+            "tailwindcss": "4.3.3"
+        }
+    },
+    "note": "Bytes per route on first load, from the HTML: scripts + module preloads + stylesheets. brotli q11, gzip 9.",
+    "apps": {
+        "next": {
+            "/": {
+                "html": {
+                    "raw": 11146,
+                    "gzip": 2800,
+                    "brotli": 2338
+                },
+                "js": {
+                    "raw": 470753,
+                    "gzip": 140627,
+                    "brotli": 120629
+                },
+                "css": {
+                    "raw": 13577,
+                    "gzip": 3412,
+                    "brotli": 2923
+                },
+                "jsFiles": 6,
+                "cssFiles": 1,
+                "requests": 8
+            },
+            "/blog/post-42": {
+                "html": {
+                    "raw": 24454,
+                    "gzip": 4824,
+                    "brotli": 4154
+                },
+                "js": {
+                    "raw": 470753,
+                    "gzip": 140627,
+                    "brotli": 120629
+                },
+                "css": {
+                    "raw": 13577,
+                    "gzip": 3412,
+                    "brotli": 2923
+                },
+                "jsFiles": 6,
+                "cssFiles": 1,
+                "requests": 8
+            },
+            "/products?category=audio&sort=price-asc&page=2": {
+                "html": {
+                    "raw": 32745,
+                    "gzip": 4818,
+                    "brotli": 4012
+                },
+                "js": {
+                    "raw": 470753,
+                    "gzip": 140627,
+                    "brotli": 120629
+                },
+                "css": {
+                    "raw": 13577,
+                    "gzip": 3412,
+                    "brotli": 2923
+                },
+                "jsFiles": 6,
+                "cssFiles": 1,
+                "requests": 8
+            },
+            "/products/7": {
+                "html": {
+                    "raw": 20100,
+                    "gzip": 4236,
+                    "brotli": 3653
+                },
+                "js": {
+                    "raw": 470753,
+                    "gzip": 140627,
+                    "brotli": 120629
+                },
+                "css": {
+                    "raw": 13577,
+                    "gzip": 3412,
+                    "brotli": 2923
+                },
+                "jsFiles": 6,
+                "cssFiles": 1,
+                "requests": 8
+            },
+            "/dashboard": {
+                "html": {
+                    "raw": 2055022,
+                    "gzip": 171361,
+                    "brotli": 138492
+                },
+                "js": {
+                    "raw": 470753,
+                    "gzip": 140627,
+                    "brotli": 120629
+                },
+                "css": {
+                    "raw": 13577,
+                    "gzip": 3412,
+                    "brotli": 2923
+                },
+                "jsFiles": 6,
+                "cssFiles": 1,
+                "requests": 8
+            }
+        },
+        "start": {
+            "/": {
+                "html": {
+                    "raw": 4663,
+                    "gzip": 1849,
+                    "brotli": 1483
+                },
+                "js": {
+                    "raw": 361043,
+                    "gzip": 115789,
+                    "brotli": 101567
+                },
+                "css": {
+                    "raw": 13250,
+                    "gzip": 3313,
+                    "brotli": 2847
+                },
+                "jsFiles": 3,
+                "cssFiles": 1,
+                "requests": 5
+            },
+            "/blog/post-42": {
+                "html": {
+                    "raw": 18390,
+                    "gzip": 3914,
+                    "brotli": 3343
+                },
+                "js": {
+                    "raw": 361059,
+                    "gzip": 115801,
+                    "brotli": 101582
+                },
+                "css": {
+                    "raw": 13250,
+                    "gzip": 3313,
+                    "brotli": 2847
+                },
+                "jsFiles": 3,
+                "cssFiles": 1,
+                "requests": 5
+            },
+            "/products?category=audio&sort=price-asc&page=2": {
+                "html": {
+                    "raw": 52071,
+                    "gzip": 12570,
+                    "brotli": 10690
+                },
+                "js": {
+                    "raw": 361305,
+                    "gzip": 115910,
+                    "brotli": 101672
+                },
+                "css": {
+                    "raw": 13250,
+                    "gzip": 3313,
+                    "brotli": 2847
+                },
+                "jsFiles": 3,
+                "cssFiles": 1,
+                "requests": 5
+            },
+            "/products/7": {
+                "html": {
+                    "raw": 10124,
+                    "gzip": 2961,
+                    "brotli": 2498
+                },
+                "js": {
+                    "raw": 361742,
+                    "gzip": 116170,
+                    "brotli": 101891
+                },
+                "css": {
+                    "raw": 13250,
+                    "gzip": 3313,
+                    "brotli": 2847
+                },
+                "jsFiles": 3,
+                "cssFiles": 1,
+                "requests": 5
+            },
+            "/dashboard": {
+                "html": {
+                    "raw": 1923870,
+                    "gzip": 181925,
+                    "brotli": 139932
+                },
+                "js": {
+                    "raw": 361205,
+                    "gzip": 115894,
+                    "brotli": 101659
+                },
+                "css": {
+                    "raw": 13250,
+                    "gzip": 3313,
+                    "brotli": 2847
+                },
+                "jsFiles": 3,
+                "cssFiles": 1,
+                "requests": 5
+            }
+        }
+    }
+}

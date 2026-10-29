@@ -1,0 +1,2254 @@
+{
+    "environment": {
+        "date": "2026-10-29T15:52:17.367Z",
+        "machine": {
+            "cpu": "Apple M5 Pro",
+            "cores": 15,
+            "memoryGb": 48,
+            "platform": "darwin 27.0.0"
+        },
+        "node": "v24.22.1",
+        "pnpm": "12.14.0",
+        "versions": {
+            "next": "16.4.2",
+            "@tanstack/react-start": "1.169.3",
+            "@tanstack/react-router": "1.170.45",
+            "vite": "8.3.4",
+            "react": "19.3.1",
+            "tailwindcss": "4.3.3"
+        }
+    },
+    "options": {
+        "duration": 60,
+        "warmup": 10,
+        "rounds": 3,
+        "connections": "10,50,100",
+        "target": "local",
+        "merge": false
+    },
+    "note": "autocannon, one route at a time, after a warm-up. req/s is the per-second average of each run; latencies in ms. Each number summarizes the rounds.",
+    "apps": {
+        "next": {
+            "idleMb": {
+                "n": 3,
+                "median": 103.9,
+                "p95": 103.99,
+                "min": 103.9,
+                "max": 104,
+                "mean": 103.93,
+                "stdev": 0.06
+            },
+            "routes": [
+                {
+                    "route": "/",
+                    "mode": "static",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 12990.14,
+                        "p95": 13000.34,
+                        "min": 12346.54,
+                        "max": 13001.47,
+                        "mean": 12779.38,
+                        "stdev": 374.9
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 359.6,
+                        "p95": 359.87,
+                        "min": 355.7,
+                        "max": 359.9,
+                        "mean": 358.4,
+                        "stdev": 2.34
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 106.45,
+                        "p95": 106.86,
+                        "min": 106.3,
+                        "max": 106.9,
+                        "mean": 106.55,
+                        "stdev": 0.31
+                    }
+                },
+                {
+                    "route": "/",
+                    "mode": "static",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 13026.4,
+                        "p95": 13069.73,
+                        "min": 12916,
+                        "max": 13074.54,
+                        "mean": 13005.65,
+                        "stdev": 81.28
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 3,
+                        "p95": 3,
+                        "min": 3,
+                        "max": 3,
+                        "mean": 3,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 4,
+                        "p95": 4,
+                        "min": 4,
+                        "max": 4,
+                        "mean": 4,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 7,
+                        "p95": 7,
+                        "min": 7,
+                        "max": 7,
+                        "mean": 7,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 378.4,
+                        "p95": 378.85,
+                        "min": 374.6,
+                        "max": 378.9,
+                        "mean": 377.3,
+                        "stdev": 2.35
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 106.85,
+                        "p95": 107.07,
+                        "min": 106.5,
+                        "max": 107.1,
+                        "mean": 106.82,
+                        "stdev": 0.3
+                    }
+                },
+                {
+                    "route": "/",
+                    "mode": "static",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 13033.47,
+                        "p95": 13044.51,
+                        "min": 13029.47,
+                        "max": 13045.74,
+                        "mean": 13036.23,
+                        "stdev": 8.48
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 7,
+                        "p95": 7,
+                        "min": 7,
+                        "max": 7,
+                        "mean": 7,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 8,
+                        "p95": 8,
+                        "min": 8,
+                        "max": 8,
+                        "mean": 8,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 12,
+                        "p95": 12,
+                        "min": 12,
+                        "max": 12,
+                        "mean": 12,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 394.6,
+                        "p95": 398.83,
+                        "min": 386,
+                        "max": 399.3,
+                        "mean": 393.3,
+                        "stdev": 6.74
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 106.9,
+                        "p95": 107.22,
+                        "min": 106.7,
+                        "max": 107.25,
+                        "mean": 106.95,
+                        "stdev": 0.28
+                    }
+                },
+                {
+                    "route": "/blog/post-42",
+                    "mode": "prerendered (200 pages)",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 9250.67,
+                        "p95": 9258.23,
+                        "min": 9244.94,
+                        "max": 9259.07,
+                        "mean": 9251.56,
+                        "stdev": 7.11
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 395.7,
+                        "p95": 399.66,
+                        "min": 386.9,
+                        "max": 400.1,
+                        "mean": 394.23,
+                        "stdev": 6.72
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 106.35,
+                        "p95": 106.57,
+                        "min": 106,
+                        "max": 106.6,
+                        "mean": 106.32,
+                        "stdev": 0.3
+                    }
+                },
+                {
+                    "route": "/blog/post-42",
+                    "mode": "prerendered (200 pages)",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 9293.87,
+                        "p95": 9306.83,
+                        "min": 9222,
+                        "max": 9308.27,
+                        "mean": 9274.71,
+                        "stdev": 46.22
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 5,
+                        "p95": 5,
+                        "min": 5,
+                        "max": 5,
+                        "mean": 5,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 5,
+                        "p95": 5.9,
+                        "min": 5,
+                        "max": 6,
+                        "mean": 5.33,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 10,
+                        "p95": 10,
+                        "min": 10,
+                        "max": 10,
+                        "mean": 10,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 395.8,
+                        "p95": 399.67,
+                        "min": 387,
+                        "max": 400.1,
+                        "mean": 394.3,
+                        "stdev": 6.68
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 106.9,
+                        "p95": 107.04,
+                        "min": 106.85,
+                        "max": 107.05,
+                        "mean": 106.93,
+                        "stdev": 0.1
+                    }
+                },
+                {
+                    "route": "/blog/post-42",
+                    "mode": "prerendered (200 pages)",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 9265.6,
+                        "p95": 9272.68,
+                        "min": 9231.21,
+                        "max": 9273.47,
+                        "mean": 9256.76,
+                        "stdev": 22.47
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 10,
+                        "p95": 10,
+                        "min": 10,
+                        "max": 10,
+                        "mean": 10,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 11,
+                        "p95": 11,
+                        "min": 11,
+                        "max": 11,
+                        "mean": 11,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 17,
+                        "p95": 17,
+                        "min": 17,
+                        "max": 17,
+                        "mean": 17,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 400.4,
+                        "p95": 401.39,
+                        "min": 397.5,
+                        "max": 401.5,
+                        "mean": 399.8,
+                        "stdev": 2.07
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 106.5,
+                        "p95": 106.68,
+                        "min": 106.35,
+                        "max": 106.7,
+                        "mean": 106.52,
+                        "stdev": 0.18
+                    }
+                },
+                {
+                    "route": "/products?category=audio&sort=price-asc&page=2",
+                    "mode": "SSR + search params",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 1011.57,
+                        "p95": 1018.34,
+                        "min": 1007.92,
+                        "max": 1019.09,
+                        "mean": 1012.86,
+                        "stdev": 5.7
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 9,
+                        "p95": 9,
+                        "min": 9,
+                        "max": 9,
+                        "mean": 9,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 11,
+                        "p95": 11,
+                        "min": 10,
+                        "max": 11,
+                        "mean": 10.67,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 16,
+                        "p95": 16,
+                        "min": 16,
+                        "max": 16,
+                        "mean": 16,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 483.4,
+                        "p95": 571.6,
+                        "min": 480.2,
+                        "max": 581.4,
+                        "mean": 515,
+                        "stdev": 57.53
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 117.3,
+                        "p95": 117.44,
+                        "min": 116.75,
+                        "max": 117.45,
+                        "mean": 117.17,
+                        "stdev": 0.37
+                    }
+                },
+                {
+                    "route": "/products?category=audio&sort=price-asc&page=2",
+                    "mode": "SSR + search params",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 1032.3,
+                        "p95": 1036.53,
+                        "min": 1025.41,
+                        "max": 1037,
+                        "mean": 1031.57,
+                        "stdev": 5.83
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 47,
+                        "p95": 47.9,
+                        "min": 47,
+                        "max": 48,
+                        "mean": 47.33,
+                        "stdev": 0.58
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 50,
+                        "p95": 50,
+                        "min": 49,
+                        "max": 50,
+                        "mean": 49.67,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 62,
+                        "p95": 67.4,
+                        "min": 61,
+                        "max": 68,
+                        "mean": 63.67,
+                        "stdev": 3.79
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 663.4,
+                        "p95": 741.79,
+                        "min": 624.6,
+                        "max": 750.5,
+                        "mean": 679.5,
+                        "stdev": 64.48
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 117.15,
+                        "p95": 117.38,
+                        "min": 116.7,
+                        "max": 117.4,
+                        "mean": 117.08,
+                        "stdev": 0.35
+                    }
+                },
+                {
+                    "route": "/products?category=audio&sort=price-asc&page=2",
+                    "mode": "SSR + search params",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 1030,
+                        "p95": 1030.76,
+                        "min": 1019.6,
+                        "max": 1030.84,
+                        "mean": 1026.81,
+                        "stdev": 6.26
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 95,
+                        "p95": 95.9,
+                        "min": 95,
+                        "max": 96,
+                        "mean": 95.33,
+                        "stdev": 0.58
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 102,
+                        "p95": 102.9,
+                        "min": 101,
+                        "max": 103,
+                        "mean": 102,
+                        "stdev": 1
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 109,
+                        "p95": 110.8,
+                        "min": 109,
+                        "max": 111,
+                        "mean": 109.67,
+                        "stdev": 1.15
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 664.1,
+                        "p95": 742.13,
+                        "min": 625.2,
+                        "max": 750.8,
+                        "mean": 680.03,
+                        "stdev": 64.3
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 117.6,
+                        "p95": 117.82,
+                        "min": 117.55,
+                        "max": 117.85,
+                        "mean": 117.67,
+                        "stdev": 0.16
+                    }
+                },
+                {
+                    "route": "/products/7",
+                    "mode": "SSR, dynamic param",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 1908.19,
+                        "p95": 1913.51,
+                        "min": 1895.35,
+                        "max": 1914.1,
+                        "mean": 1905.88,
+                        "stdev": 9.59
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 4,
+                        "p95": 4,
+                        "min": 4,
+                        "max": 4,
+                        "mean": 4,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 6,
+                        "p95": 6,
+                        "min": 6,
+                        "max": 6,
+                        "mean": 6,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 10,
+                        "p95": 10,
+                        "min": 10,
+                        "max": 10,
+                        "mean": 10,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 662.9,
+                        "p95": 743.27,
+                        "min": 629.5,
+                        "max": 752.2,
+                        "mean": 681.53,
+                        "stdev": 63.44
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 126.95,
+                        "p95": 127.9,
+                        "min": 126.75,
+                        "max": 128,
+                        "mean": 127.23,
+                        "stdev": 0.67
+                    }
+                },
+                {
+                    "route": "/products/7",
+                    "mode": "SSR, dynamic param",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 1951.85,
+                        "p95": 1962.47,
+                        "min": 1936.92,
+                        "max": 1963.65,
+                        "mean": 1950.81,
+                        "stdev": 13.4
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 25,
+                        "p95": 25,
+                        "min": 25,
+                        "max": 25,
+                        "mean": 25,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 26,
+                        "p95": 26.9,
+                        "min": 26,
+                        "max": 27,
+                        "mean": 26.33,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 37,
+                        "p95": 38.8,
+                        "min": 36,
+                        "max": 39,
+                        "mean": 37.33,
+                        "stdev": 1.53
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 663.9,
+                        "p95": 744.09,
+                        "min": 630.1,
+                        "max": 753,
+                        "mean": 682.33,
+                        "stdev": 63.49
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 127.1,
+                        "p95": 127.28,
+                        "min": 126.9,
+                        "max": 127.3,
+                        "mean": 127.1,
+                        "stdev": 0.2
+                    }
+                },
+                {
+                    "route": "/products/7",
+                    "mode": "SSR, dynamic param",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 1927.22,
+                        "p95": 1934.6,
+                        "min": 1907.5,
+                        "max": 1935.42,
+                        "mean": 1923.38,
+                        "stdev": 14.35
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 51,
+                        "p95": 51,
+                        "min": 51,
+                        "max": 51,
+                        "mean": 51,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 54,
+                        "p95": 54.9,
+                        "min": 54,
+                        "max": 55,
+                        "mean": 54.33,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 64,
+                        "p95": 65.8,
+                        "min": 64,
+                        "max": 66,
+                        "mean": 64.67,
+                        "stdev": 1.15
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 667.8,
+                        "p95": 744.57,
+                        "min": 633.1,
+                        "max": 753.1,
+                        "mean": 684.67,
+                        "stdev": 61.75
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 127.5,
+                        "p95": 127.73,
+                        "min": 127.5,
+                        "max": 127.75,
+                        "mean": 127.58,
+                        "stdev": 0.14
+                    }
+                },
+                {
+                    "route": "/dashboard",
+                    "mode": "client-heavy (5k rows)",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 136.49,
+                        "p95": 136.67,
+                        "min": 134.87,
+                        "max": 136.69,
+                        "mean": 136.02,
+                        "stdev": 1
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 65,
+                        "p95": 66.8,
+                        "min": 65,
+                        "max": 67,
+                        "mean": 65.67,
+                        "stdev": 1.15
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 125,
+                        "p95": 125.9,
+                        "min": 124,
+                        "max": 126,
+                        "mean": 125,
+                        "stdev": 1
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 140,
+                        "p95": 140.9,
+                        "min": 139,
+                        "max": 141,
+                        "mean": 140,
+                        "stdev": 1
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 762,
+                        "p95": 842.73,
+                        "min": 731.5,
+                        "max": 851.7,
+                        "mean": 781.73,
+                        "stdev": 62.48
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 100,
+                        "p95": 100,
+                        "min": 100,
+                        "max": 100,
+                        "mean": 100,
+                        "stdev": 0
+                    }
+                },
+                {
+                    "route": "/dashboard",
+                    "mode": "client-heavy (5k rows)",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 136.44,
+                        "p95": 137.1,
+                        "min": 135.64,
+                        "max": 137.17,
+                        "mean": 136.42,
+                        "stdev": 0.77
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 341,
+                        "p95": 344.6,
+                        "min": 340,
+                        "max": 345,
+                        "mean": 342,
+                        "stdev": 2.65
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 379,
+                        "p95": 381.7,
+                        "min": 377,
+                        "max": 382,
+                        "mean": 379.33,
+                        "stdev": 2.52
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 754,
+                        "p95": 760.3,
+                        "min": 750,
+                        "max": 761,
+                        "mean": 755,
+                        "stdev": 5.57
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 753.6,
+                        "p95": 843.69,
+                        "min": 719,
+                        "max": 853.7,
+                        "mean": 775.43,
+                        "stdev": 69.95
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 100,
+                        "p95": 100,
+                        "min": 100,
+                        "max": 100,
+                        "mean": 100,
+                        "stdev": 0
+                    }
+                },
+                {
+                    "route": "/dashboard",
+                    "mode": "client-heavy (5k rows)",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 127.92,
+                        "p95": 128.17,
+                        "min": 127.45,
+                        "max": 128.2,
+                        "mean": 127.86,
+                        "stdev": 0.38
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 386,
+                        "p95": 390.5,
+                        "min": 386,
+                        "max": 391,
+                        "mean": 387.67,
+                        "stdev": 2.89
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 34630,
+                        "p95": 36249.1,
+                        "min": 32337,
+                        "max": 36429,
+                        "mean": 34465.33,
+                        "stdev": 2050.96
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 57247,
+                        "p95": 57408.1,
+                        "min": 57078,
+                        "max": 57426,
+                        "mean": 57250.33,
+                        "stdev": 174.02
+                    },
+                    "errors": 2857531,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 759.5,
+                        "p95": 860.12,
+                        "min": 732.8,
+                        "max": 871.3,
+                        "mean": 787.87,
+                        "stdev": 73.48
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 100,
+                        "p95": 100,
+                        "min": 100,
+                        "max": 100,
+                        "mean": 100,
+                        "stdev": 0
+                    }
+                },
+                {
+                    "route": "/api/search?q=lor",
+                    "mode": "API route",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 10713.34,
+                        "p95": 10718.25,
+                        "min": 10528.8,
+                        "max": 10718.8,
+                        "mean": 10653.65,
+                        "stdev": 108.15
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 688.3,
+                        "p95": 763.81,
+                        "min": 653.4,
+                        "max": 772.2,
+                        "mean": 704.63,
+                        "stdev": 61.06
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 114.7,
+                        "p95": 115.06,
+                        "min": 114.6,
+                        "max": 115.1,
+                        "mean": 114.8,
+                        "stdev": 0.26
+                    }
+                },
+                {
+                    "route": "/api/search?q=lor",
+                    "mode": "API route",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 10757.6,
+                        "p95": 10768.64,
+                        "min": 10576.4,
+                        "max": 10769.87,
+                        "mean": 10701.29,
+                        "stdev": 108.33
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 4,
+                        "p95": 4,
+                        "min": 4,
+                        "max": 4,
+                        "mean": 4,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 5,
+                        "p95": 5,
+                        "min": 5,
+                        "max": 5,
+                        "mean": 5,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 9,
+                        "p95": 9,
+                        "min": 9,
+                        "max": 9,
+                        "mean": 9,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 683,
+                        "p95": 750.05,
+                        "min": 648.2,
+                        "max": 757.5,
+                        "mean": 696.23,
+                        "stdev": 55.84
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 115.3,
+                        "p95": 115.35,
+                        "min": 114.7,
+                        "max": 115.35,
+                        "mean": 115.12,
+                        "stdev": 0.36
+                    }
+                },
+                {
+                    "route": "/api/search?q=lor",
+                    "mode": "API route",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 10686,
+                        "p95": 10733.4,
+                        "min": 10508.54,
+                        "max": 10738.67,
+                        "mean": 10644.4,
+                        "stdev": 120.57
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 8,
+                        "p95": 8,
+                        "min": 8,
+                        "max": 8,
+                        "mean": 8,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 10,
+                        "p95": 10,
+                        "min": 10,
+                        "max": 10,
+                        "mean": 10,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 16,
+                        "p95": 16,
+                        "min": 16,
+                        "max": 16,
+                        "mean": 16,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 683,
+                        "p95": 750.14,
+                        "min": 648,
+                        "max": 757.6,
+                        "mean": 696.2,
+                        "stdev": 55.98
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 115.6,
+                        "p95": 116.1,
+                        "min": 115,
+                        "max": 116.15,
+                        "mean": 115.58,
+                        "stdev": 0.58
+                    }
+                }
+            ]
+        },
+        "start": {
+            "idleMb": {
+                "n": 3,
+                "median": 62.6,
+                "p95": 62.78,
+                "min": 62.5,
+                "max": 62.8,
+                "mean": 62.63,
+                "stdev": 0.15
+            },
+            "routes": [
+                {
+                    "route": "/",
+                    "mode": "static",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 38011.2,
+                        "p95": 38068.8,
+                        "min": 37992.54,
+                        "max": 38075.2,
+                        "mean": 38026.31,
+                        "stdev": 43.35
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 181.2,
+                        "p95": 203.07,
+                        "min": 181.2,
+                        "max": 205.5,
+                        "mean": 189.3,
+                        "stdev": 14.03
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 228.2,
+                        "p95": 228.56,
+                        "min": 227.4,
+                        "max": 228.6,
+                        "mean": 228.07,
+                        "stdev": 0.61
+                    }
+                },
+                {
+                    "route": "/",
+                    "mode": "static",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 40830.4,
+                        "p95": 40857.28,
+                        "min": 40771.74,
+                        "max": 40860.27,
+                        "mean": 40820.8,
+                        "stdev": 45.04
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 231.2,
+                        "p95": 231.2,
+                        "min": 230.9,
+                        "max": 231.2,
+                        "mean": 231.1,
+                        "stdev": 0.17
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 233.4,
+                        "p95": 233.58,
+                        "min": 232.2,
+                        "max": 233.6,
+                        "mean": 233.07,
+                        "stdev": 0.76
+                    }
+                },
+                {
+                    "route": "/",
+                    "mode": "static",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 41954.67,
+                        "p95": 41974.83,
+                        "min": 41833.6,
+                        "max": 41977.07,
+                        "mean": 41921.78,
+                        "stdev": 77.18
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 3,
+                        "p95": 3,
+                        "min": 3,
+                        "max": 3,
+                        "mean": 3,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 232.5,
+                        "p95": 232.68,
+                        "min": 232.2,
+                        "max": 232.7,
+                        "mean": 232.47,
+                        "stdev": 0.25
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 232.75,
+                        "p95": 233.07,
+                        "min": 232,
+                        "max": 233.1,
+                        "mean": 232.62,
+                        "stdev": 0.56
+                    }
+                },
+                {
+                    "route": "/blog/post-42",
+                    "mode": "prerendered (200 pages)",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 36864.54,
+                        "p95": 36869.81,
+                        "min": 36725.87,
+                        "max": 36870.4,
+                        "mean": 36820.27,
+                        "stdev": 81.81
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 276.5,
+                        "p95": 276.68,
+                        "min": 276.1,
+                        "max": 276.7,
+                        "mean": 276.43,
+                        "stdev": 0.31
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 230.1,
+                        "p95": 230.46,
+                        "min": 230,
+                        "max": 230.5,
+                        "mean": 230.2,
+                        "stdev": 0.26
+                    }
+                },
+                {
+                    "route": "/blog/post-42",
+                    "mode": "prerendered (200 pages)",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 39450.67,
+                        "p95": 39559.63,
+                        "min": 39385.6,
+                        "max": 39571.74,
+                        "mean": 39469.34,
+                        "stdev": 94.46
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 279,
+                        "p95": 279.18,
+                        "min": 278.7,
+                        "max": 279.2,
+                        "mean": 278.97,
+                        "stdev": 0.25
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 235.3,
+                        "p95": 235.66,
+                        "min": 234.05,
+                        "max": 235.7,
+                        "mean": 235.02,
+                        "stdev": 0.86
+                    }
+                },
+                {
+                    "route": "/blog/post-42",
+                    "mode": "prerendered (200 pages)",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 40724.81,
+                        "p95": 40815.52,
+                        "min": 40666.67,
+                        "max": 40825.6,
+                        "mean": 40739.03,
+                        "stdev": 80.41
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 3,
+                        "p95": 3,
+                        "min": 3,
+                        "max": 3,
+                        "mean": 3,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 280.7,
+                        "p95": 280.88,
+                        "min": 280.5,
+                        "max": 280.9,
+                        "mean": 280.7,
+                        "stdev": 0.2
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 233.9,
+                        "p95": 234.62,
+                        "min": 232.4,
+                        "max": 234.7,
+                        "mean": 233.67,
+                        "stdev": 1.17
+                    }
+                },
+                {
+                    "route": "/products?category=audio&sort=price-asc&page=2",
+                    "mode": "SSR + search params",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 1579.8,
+                        "p95": 1581.41,
+                        "min": 1532.02,
+                        "max": 1581.59,
+                        "mean": 1564.47,
+                        "stdev": 28.12
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 5,
+                        "p95": 5,
+                        "min": 5,
+                        "max": 5,
+                        "mean": 5,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 9,
+                        "p95": 9,
+                        "min": 9,
+                        "max": 9,
+                        "mean": 9,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 12,
+                        "p95": 12.9,
+                        "min": 12,
+                        "max": 13,
+                        "mean": 12.33,
+                        "stdev": 0.58
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 423.3,
+                        "p95": 434.73,
+                        "min": 412,
+                        "max": 436,
+                        "mean": 423.77,
+                        "stdev": 12.01
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 107.15,
+                        "p95": 116.83,
+                        "min": 106.8,
+                        "max": 117.9,
+                        "mean": 110.62,
+                        "stdev": 6.31
+                    }
+                },
+                {
+                    "route": "/products?category=audio&sort=price-asc&page=2",
+                    "mode": "SSR + search params",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 1568.12,
+                        "p95": 1568.78,
+                        "min": 1567.7,
+                        "max": 1568.85,
+                        "mean": 1568.22,
+                        "stdev": 0.58
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 30,
+                        "p95": 30,
+                        "min": 30,
+                        "max": 30,
+                        "mean": 30,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 33,
+                        "p95": 33,
+                        "min": 32,
+                        "max": 33,
+                        "mean": 32.67,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 61,
+                        "p95": 61,
+                        "min": 60,
+                        "max": 61,
+                        "mean": 60.67,
+                        "stdev": 0.58
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 479.8,
+                        "p95": 568.09,
+                        "min": 472.6,
+                        "max": 577.9,
+                        "mean": 510.1,
+                        "stdev": 58.83
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 106.2,
+                        "p95": 106.56,
+                        "min": 105.8,
+                        "max": 106.6,
+                        "mean": 106.2,
+                        "stdev": 0.4
+                    }
+                },
+                {
+                    "route": "/products?category=audio&sort=price-asc&page=2",
+                    "mode": "SSR + search params",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 1593.97,
+                        "p95": 1607.95,
+                        "min": 1589.5,
+                        "max": 1609.5,
+                        "mean": 1597.66,
+                        "stdev": 10.5
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 62,
+                        "p95": 62,
+                        "min": 61,
+                        "max": 62,
+                        "mean": 61.67,
+                        "stdev": 0.58
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 63,
+                        "p95": 63,
+                        "min": 62,
+                        "max": 63,
+                        "mean": 62.67,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 68,
+                        "p95": 68,
+                        "min": 67,
+                        "max": 68,
+                        "mean": 67.67,
+                        "stdev": 0.58
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 566.8,
+                        "p95": 580.03,
+                        "min": 500.4,
+                        "max": 581.5,
+                        "mean": 549.57,
+                        "stdev": 43.21
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 103.95,
+                        "p95": 104.13,
+                        "min": 103.7,
+                        "max": 104.15,
+                        "mean": 103.93,
+                        "stdev": 0.23
+                    }
+                },
+                {
+                    "route": "/products/7",
+                    "mode": "SSR, dynamic param",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 7750.2,
+                        "p95": 7789.26,
+                        "min": 7711.14,
+                        "max": 7793.6,
+                        "mean": 7751.65,
+                        "stdev": 41.25
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 567.4,
+                        "p95": 579.37,
+                        "min": 499.1,
+                        "max": 580.7,
+                        "mean": 549.07,
+                        "stdev": 43.78
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 116.6,
+                        "p95": 117.14,
+                        "min": 116.1,
+                        "max": 117.2,
+                        "mean": 116.63,
+                        "stdev": 0.55
+                    }
+                },
+                {
+                    "route": "/products/7",
+                    "mode": "SSR, dynamic param",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 7750.54,
+                        "p95": 7792.35,
+                        "min": 7703.4,
+                        "max": 7797,
+                        "mean": 7750.31,
+                        "stdev": 46.8
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 6,
+                        "p95": 6,
+                        "min": 6,
+                        "max": 6,
+                        "mean": 6,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 7,
+                        "p95": 7,
+                        "min": 7,
+                        "max": 7,
+                        "mean": 7,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 10,
+                        "p95": 10,
+                        "min": 10,
+                        "max": 10,
+                        "mean": 10,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 568.8,
+                        "p95": 580.59,
+                        "min": 500.6,
+                        "max": 581.9,
+                        "mean": 550.43,
+                        "stdev": 43.65
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 116.45,
+                        "p95": 117.26,
+                        "min": 116.2,
+                        "max": 117.35,
+                        "mean": 116.67,
+                        "stdev": 0.6
+                    }
+                },
+                {
+                    "route": "/products/7",
+                    "mode": "SSR, dynamic param",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 7707.87,
+                        "p95": 7742.91,
+                        "min": 7627.2,
+                        "max": 7746.8,
+                        "mean": 7693.96,
+                        "stdev": 61
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 12,
+                        "p95": 12,
+                        "min": 12,
+                        "max": 12,
+                        "mean": 12,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 13,
+                        "p95": 13,
+                        "min": 13,
+                        "max": 13,
+                        "mean": 13,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 20,
+                        "p95": 20,
+                        "min": 20,
+                        "max": 20,
+                        "mean": 20,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 568.2,
+                        "p95": 581.88,
+                        "min": 522.2,
+                        "max": 583.4,
+                        "mean": 557.93,
+                        "stdev": 31.87
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 115.95,
+                        "p95": 116.63,
+                        "min": 115.35,
+                        "max": 116.7,
+                        "mean": 116,
+                        "stdev": 0.68
+                    }
+                },
+                {
+                    "route": "/dashboard",
+                    "mode": "client-heavy (5k rows)",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 3754.2,
+                        "p95": 3755.88,
+                        "min": 3747.84,
+                        "max": 3756.07,
+                        "mean": 3752.7,
+                        "stdev": 4.31
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 3,
+                        "p95": 3,
+                        "min": 3,
+                        "max": 3,
+                        "mean": 3,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 4,
+                        "p95": 4,
+                        "min": 4,
+                        "max": 4,
+                        "mean": 4,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 738.6,
+                        "p95": 757.14,
+                        "min": 687.5,
+                        "max": 759.2,
+                        "mean": 728.43,
+                        "stdev": 36.92
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 266.3,
+                        "p95": 268.19,
+                        "min": 263.3,
+                        "max": 268.4,
+                        "mean": 266,
+                        "stdev": 2.56
+                    }
+                },
+                {
+                    "route": "/dashboard",
+                    "mode": "client-heavy (5k rows)",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 2582.47,
+                        "p95": 2593.99,
+                        "min": 2574.4,
+                        "max": 2595.27,
+                        "mean": 2584.05,
+                        "stdev": 10.52
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 18,
+                        "p95": 18,
+                        "min": 18,
+                        "max": 18,
+                        "mean": 18,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 21,
+                        "p95": 21,
+                        "min": 21,
+                        "max": 21,
+                        "mean": 21,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 37,
+                        "p95": 37,
+                        "min": 37,
+                        "max": 37,
+                        "mean": 37,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 795.1,
+                        "p95": 816.79,
+                        "min": 787.6,
+                        "max": 819.2,
+                        "mean": 800.63,
+                        "stdev": 16.51
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 195,
+                        "p95": 195.18,
+                        "min": 194.85,
+                        "max": 195.2,
+                        "mean": 195.02,
+                        "stdev": 0.18
+                    }
+                },
+                {
+                    "route": "/dashboard",
+                    "mode": "client-heavy (5k rows)",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 2514.73,
+                        "p95": 2515.28,
+                        "min": 2465.27,
+                        "max": 2515.34,
+                        "mean": 2498.45,
+                        "stdev": 28.73
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 39,
+                        "p95": 39.9,
+                        "min": 39,
+                        "max": 40,
+                        "mean": 39.33,
+                        "stdev": 0.58
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 42,
+                        "p95": 42.9,
+                        "min": 42,
+                        "max": 43,
+                        "mean": 42.33,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 79,
+                        "p95": 79,
+                        "min": 79,
+                        "max": 79,
+                        "mean": 79,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 899.3,
+                        "p95": 930.98,
+                        "min": 887.8,
+                        "max": 934.5,
+                        "mean": 907.2,
+                        "stdev": 24.33
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 193.4,
+                        "p95": 196.19,
+                        "min": 190.95,
+                        "max": 196.5,
+                        "mean": 193.62,
+                        "stdev": 2.78
+                    }
+                },
+                {
+                    "route": "/api/search?q=lor",
+                    "mode": "API route",
+                    "connections": 10,
+                    "rps": {
+                        "n": 3,
+                        "median": 24749.07,
+                        "p95": 24917.79,
+                        "min": 23260.27,
+                        "max": 24936.54,
+                        "mean": 24315.29,
+                        "stdev": 918.47
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 0,
+                        "p95": 0.9,
+                        "min": 0,
+                        "max": 1,
+                        "mean": 0.33,
+                        "stdev": 0.58
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 901.5,
+                        "p95": 933.27,
+                        "min": 895.2,
+                        "max": 936.8,
+                        "mean": 911.17,
+                        "stdev": 22.42
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 102.2,
+                        "p95": 115.16,
+                        "min": 99.7,
+                        "max": 116.6,
+                        "mean": 106.17,
+                        "stdev": 9.12
+                    }
+                },
+                {
+                    "route": "/api/search?q=lor",
+                    "mode": "API route",
+                    "connections": 50,
+                    "rps": {
+                        "n": 3,
+                        "median": 24811.74,
+                        "p95": 24988.86,
+                        "min": 23290.4,
+                        "max": 25008.54,
+                        "mean": 24370.23,
+                        "stdev": 940.32
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 1,
+                        "p95": 1,
+                        "min": 1,
+                        "max": 1,
+                        "mean": 1,
+                        "stdev": 0
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 2,
+                        "p95": 2,
+                        "min": 2,
+                        "max": 2,
+                        "mean": 2,
+                        "stdev": 0
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 3,
+                        "p95": 3.9,
+                        "min": 3,
+                        "max": 4,
+                        "mean": 3.33,
+                        "stdev": 0.58
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 901.7,
+                        "p95": 933.47,
+                        "min": 895.5,
+                        "max": 937,
+                        "mean": 911.4,
+                        "stdev": 22.39
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 102.4,
+                        "p95": 114.55,
+                        "min": 99.8,
+                        "max": 115.9,
+                        "mean": 106.03,
+                        "stdev": 8.64
+                    }
+                },
+                {
+                    "route": "/api/search?q=lor",
+                    "mode": "API route",
+                    "connections": 100,
+                    "rps": {
+                        "n": 3,
+                        "median": 24849.6,
+                        "p95": 25065.37,
+                        "min": 23319.47,
+                        "max": 25089.34,
+                        "mean": 24419.47,
+                        "stdev": 960.14
+                    },
+                    "p50": {
+                        "n": 3,
+                        "median": 3,
+                        "p95": 3.9,
+                        "min": 3,
+                        "max": 4,
+                        "mean": 3.33,
+                        "stdev": 0.58
+                    },
+                    "p90": {
+                        "n": 3,
+                        "median": 4,
+                        "p95": 4.9,
+                        "min": 4,
+                        "max": 5,
+                        "mean": 4.33,
+                        "stdev": 0.58
+                    },
+                    "p99": {
+                        "n": 3,
+                        "median": 7,
+                        "p95": 7,
+                        "min": 7,
+                        "max": 7,
+                        "mean": 7,
+                        "stdev": 0
+                    },
+                    "errors": 0,
+                    "non2xx": 0,
+                    "peakMemoryMb": {
+                        "n": 3,
+                        "median": 902.1,
+                        "p95": 933.87,
+                        "min": 896.3,
+                        "max": 937.4,
+                        "mean": 911.93,
+                        "stdev": 22.24
+                    },
+                    "cpuPercent": {
+                        "n": 3,
+                        "median": 102.3,
+                        "p95": 115.22,
+                        "min": 99.6,
+                        "max": 116.65,
+                        "mean": 106.18,
+                        "stdev": 9.16
+                    }
+                }
+            ]
+        }
+    }
+}

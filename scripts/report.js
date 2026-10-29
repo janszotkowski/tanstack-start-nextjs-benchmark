@@ -100,14 +100,21 @@ for (const target of ['local', 'docker']) {
         `\`${entry.route}\` @${entry.connections}`,
         ...KEYS.flatMap((key) => {
             const other = loadResult.apps[key].routes[index];
-            return [stat(other.rps), `${fmt(other.p50.median)} / ${fmt(other.p99.median)}`, fmt(other.peakMemoryMb.median)];
+            const flag = other.errors > 0 ? ' ⚠' : '';
+            return [stat(other.rps), `${fmt(other.p50.median)} / ${fmt(other.p99.median)}${flag}`, fmt(other.peakMemoryMb.median)];
         }),
     ]);
+    const failed = KEYS.flatMap((key) =>
+        loadResult.apps[key].routes.filter((entry) => entry.errors > 0).map((entry) => `${APPS[key].name} \`${entry.route}\` @${entry.connections} (${fmt(entry.errors)} errors + timeouts)`),
+    );
+    const warning = failed.length
+        ? `\n\n⚠ Not valid: ${failed.join(', ')}. The server was saturated (100 % CPU), autocannon's request timeouts piled up and its latency and error counts stop being measurements. Read the req/s as the saturation ceiling, ignore p99.`
+        : '';
     sections.push(
         `## Server load, ${target} (${loadResult.options.duration} s per run, ${loadResult.options.rounds} rounds)\n\n${loadResult.note}\n\nIdle memory: ${KEYS.map((key) => `${APPS[key].name} ${fmt(loadResult.apps[key].idleMb.median)} MB`).join(', ')}.\n\n${table(
             ['Route @connections', ...KEYS.flatMap((key) => [`${APPS[key].name} req/s`, 'p50 / p99 ms', 'peak MB'])],
             rows,
-        )}`,
+        )}${warning}`,
     );
 }
 

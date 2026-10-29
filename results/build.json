@@ -1,0 +1,65 @@
+{
+    "environment": {
+        "date": "2026-10-29T13:42:13.798Z",
+        "machine": {
+            "cpu": "Apple M5 Pro",
+            "cores": 15,
+            "memoryGb": 48,
+            "platform": "darwin 27.0.0"
+        },
+        "node": "v24.22.1",
+        "pnpm": "12.14.0",
+        "versions": {
+            "next": "16.4.2",
+            "@tanstack/react-start": "1.169.3",
+            "@tanstack/react-router": "1.170.45",
+            "vite": "8.3.4",
+            "react": "19.3.1",
+            "tailwindcss": "4.3.3"
+        }
+    },
+    "runs": 10,
+    "note": "Wall time of `pnpm --filter <app> build`. Cold: output and bundler cache deleted. Warm: output deleted, cache kept.",
+    "apps": {
+        "next": {
+            "coldMs": {
+                "n": 10,
+                "median": 1913.27,
+                "p95": 2118.67,
+                "min": 1893.68,
+                "max": 2268.96,
+                "mean": 1946.91,
+                "stdev": 113.99
+            },
+            "warmMs": {
+                "n": 10,
+                "median": 1175.16,
+                "p95": 1188.69,
+                "min": 1162.12,
+                "max": 1197.14,
+                "mean": 1174.9,
+                "stdev": 9.52
+            }
+        },
+        "start": {
+            "coldMs": {
+                "n": 10,
+                "median": 1068.37,
+                "p95": 1240.5,
+                "min": 1058.22,
+                "max": 1336.52,
+                "mean": 1103.43,
+                "stdev": 85.17
+            },
+            "warmMs": {
+                "n": 10,
+                "median": 1066.92,
+                "p95": 1083.19,
+                "min": 1054.12,
+                "max": 1089.78,
+                "mean": 1068.33,
+                "stdev": 9.54
+            }
+        }
+    }
+}
